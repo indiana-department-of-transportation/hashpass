@@ -5,15 +5,8 @@ systems for use with e.g. the ansible user module. Use like so:
 
     /path/to/gen_pass_sha.py mypassword
 """
-from argparse import ArgumentParser
-from sys import argv
-from passlib.hash import sha512_crypt
 
-PARSER = ArgumentParser()
-PARSER.add_argument(
-    "passwd",
-    help="The password to encrypt.",
-)
+from passlib.hash import sha512_crypt
 
 
 def encrypt(passwd: str) -> str:
@@ -23,5 +16,5 @@ def encrypt(passwd: str) -> str:
 
 
 if __name__ == "__main__":
-    args = PARSER.parse_args(argv[1:])
-    print(encrypt(args.passwd))
+    passwd = input("Enter your password:")
+    print(encrypt(passwd))
