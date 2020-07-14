@@ -15,10 +15,15 @@ def encrypt(passwd: str) -> str:
     return sha512_crypt.using(rounds=5000).hash(passwd)
 
 
-if __name__ == "__main__":
+def main():
+    """Main function for generating password hash."""
     passwd = input("Enter your password:")
     passwd2 = input("Please re-enter to confirm:")
     if passwd == passwd2:
         print(encrypt(passwd))
     else:
         print("Sorry, passwords don't match.")
+
+
+if __name__ == "__main__":
+    main()
