@@ -17,4 +17,8 @@ def encrypt(passwd: str) -> str:
 
 if __name__ == "__main__":
     passwd = input("Enter your password:")
-    print(encrypt(passwd))
+    passwd2 = input("Please re-enter to confirm:")
+    if passwd == passwd2:
+        print(encrypt(passwd))
+    else:
+        print("Sorry, passwords don't match.")
