@@ -36,14 +36,14 @@ setuptools.setup(
     python_requires='>=3.6',
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License"
+        "License :: OSI Approved :: MIT License",
     ],
     install_requires=[
       "passlib",
     ],
     entry_points={
         "console_scripts": [
-            "hashpass = hashpass.gen_pass_sha:main"
+            "hashpass = hashpass.gen_pass_sha:main",
         ]
-    }
+    },
 )
