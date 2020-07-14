@@ -6,6 +6,8 @@ systems for use with e.g. the ansible user module. Use like so:
     /path/to/gen_pass_sha.py mypassword
 """
 
+import sys
+from getpass import getpass
 from passlib.hash import sha512_crypt
 
 
@@ -17,8 +19,13 @@ def encrypt(passwd: str) -> str:
 
 def main():
     """Main function for generating password hash."""
-    passwd = input("Enter your password:")
-    passwd2 = input("Please re-enter to confirm:")
+
+    fn = getpass
+    if "--show" in sys.argv:
+        fn = input
+
+    passwd = fn("Enter your password: ")
+    passwd2 = fn("Please re-enter to confirm: ")
     if passwd == passwd2:
         print(encrypt(passwd))
     else:
